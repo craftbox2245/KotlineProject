@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_first"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="First Fragmant" />
+        <item
+            android:id="@+id/nav_second"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Second Fragment" />
+        <item
+            android:id="@+id/nav_recycleview"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Recycleview Fragment" />
+        <item
+            android:id="@+id/nav_recycleview_grid"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Recycleview Grid" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Gallery" />
+        <item
+            android:id="@+id/nav_image_loder"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Image Loader" />
+
+        <item
+            android:id="@+id/nav_dialog"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Fragment Dialog" />
+        <item
+            android:id="@+id/nav_pag"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="View Pager" />
+        <item
+            android:id="@+id/nav_tab"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Tab Activity" />
+        <item
+            android:id="@+id/nav_broadcast"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Otp Verification" />
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Google Map" />
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Version 1.0" />
+        </menu>
+    </item>
+
+</menu>
