@@ -61,13 +61,6 @@ class RecycleViewFragment : Fragment(),CountryAdapter.abc {
                 if (GlobalElements.isConnectingToInternet(activity!!.applicationContext)) {
                     getBranch()
                 } else {
-
-                    /*val alertDialog = AlertDialog.Builder(context).create()
-                    alertDialog.setTitle("Internet Connection")
-                    alertDialog.setMessage("Please check your internet connection ..")
-                    alertDialog.setButton("OK") { dialog, which -> }
-                    alertDialog.show()*/
-
                     GlobalElements.showDialog(activity!!)
                 }
             } catch (e: Exception) {
@@ -86,27 +79,27 @@ class RecycleViewFragment : Fragment(),CountryAdapter.abc {
             var da = CountryModel()
             da.id = "1"
             da.name = "India"
-            data.add(da);
+            data.add(da)
 
             da = CountryModel()
             da.id = "2"
             da.name = "Pakistan"
-            data.add(da);
+            data.add(da)
 
             da = CountryModel()
             da.id = "3"
             da.name = "America"
-            data.add(da);
+            data.add(da)
 
             da = CountryModel()
             da.id = "4"
             da.name = "China"
-            data.add(da);
+            data.add(da)
 
             da = CountryModel()
             da.id = "5"
             da.name = "Japan"
-            data.add(da);
+            data.add(da)
 
 
             val c = db.getData("select * from " + DBHelper.COUNTRY + " ")
@@ -115,10 +108,10 @@ class RecycleViewFragment : Fragment(),CountryAdapter.abc {
                 data.clear()
                 while (c.moveToNext())
                 {
-                    var da = CountryModel()
+                    val da = CountryModel()
                     da.id = c.getString(c.getColumnIndex("id"))
                     da.name = c.getString(c.getColumnIndex("name"))
-                    data.add(da);
+                    data.add(da)
                 }
             } else {
                 System.out.print("")
@@ -157,11 +150,11 @@ class RecycleViewFragment : Fragment(),CountryAdapter.abc {
                     if (json.getInt("ack") == 1) {
                         val customer_branch = json.getJSONArray("result")
                         for (i in 0..customer_branch.length() - 1) {
-                            val d = customer_branch.getJSONObject(i)
+                            var d = customer_branch.getJSONObject(i)
                             var da = CountryModel()
                             da.id = "" + d.getString("id")
                             da.name = "" + d.getString("name")
-                            data.add(da);
+                            data.add(da)
                         }
 
                         recycleView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
@@ -170,7 +163,7 @@ class RecycleViewFragment : Fragment(),CountryAdapter.abc {
                         recycleView.addItemDecoration(itemDecoration)
                         recycleView.adapter = adapter
                     } else {
-                        Toast.makeText(activity, "" + json.getString("ack_msg"), Toast.LENGTH_LONG).show();
+                        Toast.makeText(activity, "" + json.getString("ack_msg"), Toast.LENGTH_LONG).show()
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
