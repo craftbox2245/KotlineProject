@@ -62,13 +62,13 @@ class RecycleViewFragment : Fragment(),CountryAdapter.abc {
                     getBranch()
                 } else {
 
-                    val alertDialog = AlertDialog.Builder(context).create()
+                    /*val alertDialog = AlertDialog.Builder(context).create()
                     alertDialog.setTitle("Internet Connection")
                     alertDialog.setMessage("Please check your internet connection ..")
                     alertDialog.setButton("OK") { dialog, which -> }
-                    alertDialog.show()
+                    alertDialog.show()*/
 
-                    //GlobalElements.showDialog(activity!!.applicationContext)
+                    GlobalElements.showDialog(activity!!)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()

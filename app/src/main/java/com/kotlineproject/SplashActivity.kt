@@ -3,6 +3,7 @@ package com.kotlineproject
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import com.craftbox.hellokotlin.netUtils.MyPreferences
 import com.kotlineproject.netUtils.DBHelper
 import com.kotlineproject.netUtils.RuntimePermissionsActivity
@@ -39,16 +40,24 @@ class SplashActivity : RuntimePermissionsActivity() {
                 e.printStackTrace()
             }
 
-
-            if (myPreferences.getPreferences("" + myPreferences.id).equals("")) {
-                val intent = Intent(this@SplashActivity, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
-            } else {
-                val intent = Intent(this@SplashActivity, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+            try {
+                if (GlobalElements.isConnectingToInternet(this@SplashActivity)) {
+                    if (myPreferences.getPreferences("" + myPreferences.id).equals("")) {
+                        val intent = Intent(this@SplashActivity, LoginActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        val intent = Intent(this@SplashActivity, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                } else {
+                    GlobalElements.showDialog(this@SplashActivity)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
+
         } catch (e: Exception) {
             e.printStackTrace()
         }
