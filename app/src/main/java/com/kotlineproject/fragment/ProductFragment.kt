@@ -63,11 +63,7 @@ class ProductFragment : Fragment() {
                 if (GlobalElements.isConnectingToInternet(activity!!.applicationContext)) {
                     getBranch()
                 } else {
-                    val alertDialog = AlertDialog.Builder(context).create()
-                    alertDialog.setTitle("Internet Connection")
-                    alertDialog.setMessage("Please check your internet connection ..")
-                    alertDialog.setButton("OK") { dialog, which -> }
-                    alertDialog.show()
+                    GlobalElements.showDialog(activity!!)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
