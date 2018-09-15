@@ -50,6 +50,10 @@
             android:id="@+id/nav_map"
             android:icon="@drawable/ic_menu_manage"
             android:title="Google Map" />
+        <item
+            android:id="@+id/nav_spinner"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Searchable Spinner" />
 
     </group>
 

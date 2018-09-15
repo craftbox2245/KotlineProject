@@ -69,11 +69,11 @@ class LocationActivity : AppCompatActivity(), LocationListener, OnMapReadyCallba
             try {
                 camera = LatLng(location.latitude, location.longitude)
                 origin = LatLng(location.latitude, location.longitude)
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(camera, 20f))
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(camera, 16f))
                 // Zoom in, animating the camera.
                 googleMap.animateCamera(CameraUpdateFactory.zoomIn())
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(camera, 30f), 4000, null)
-                locationManager.requestLocationUpdates(bestProvider, 20000, 0f, this)
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(camera, 25f), 4000, null)
+                locationManager.requestLocationUpdates(bestProvider, 2000, 10f, this)
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -91,8 +91,6 @@ class LocationActivity : AppCompatActivity(), LocationListener, OnMapReadyCallba
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location)
-
         (supportFragmentManager.findFragmentById(R.id.googleMap) as SupportMapFragment).getMapAsync(this@LocationActivity)
-
     }
 }

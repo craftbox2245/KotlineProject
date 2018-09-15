@@ -173,6 +173,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val intent = Intent(this@MainActivity, LocationActivity::class.java)
                 startActivity(intent)
             }
+            R.id.nav_spinner -> {
+                val intent = Intent(this@MainActivity, SearchableSpinner::class.java)
+                startActivity(intent)
+            }
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true

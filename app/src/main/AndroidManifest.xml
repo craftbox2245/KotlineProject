@@ -63,7 +63,8 @@
 
         <activity android:name=".PagerActivity" />
         <activity android:name=".OtpVerificationActivity" />
-        <activity android:name=".TabActivity"></activity>
+        <activity android:name=".TabActivity" />
+        <activity android:name=".SearchableSpinner"></activity>
     </application>
 
 </manifest>
