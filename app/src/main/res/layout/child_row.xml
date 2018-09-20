@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/child_row_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingBottom="@dimen/normal_font"
+            android:paddingLeft="@dimen/very_large_font"
+            android:paddingTop="@dimen/normal_font"
+            android:text="United States Of America"
+            android:textColor="@color/child_color"
+            android:textSize="@dimen/mediam_font" />
+    </LinearLayout>
+</LinearLayout>

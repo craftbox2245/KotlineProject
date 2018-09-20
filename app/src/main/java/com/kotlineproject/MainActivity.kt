@@ -177,6 +177,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val intent = Intent(this@MainActivity, SearchableSpinner::class.java)
                 startActivity(intent)
             }
+            R.id.nav_expandable ->{
+                val intent = Intent(this@MainActivity, ExpandabelListActivity::class.java)
+                startActivity(intent)
+            }
+
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
