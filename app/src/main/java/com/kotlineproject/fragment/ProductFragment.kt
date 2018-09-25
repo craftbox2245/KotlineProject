@@ -16,6 +16,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.google.android.gms.internal.d
 import com.kotlineproject.GlobalElements
 
 import com.kotlineproject.R
@@ -61,7 +62,18 @@ class ProductFragment : Fragment() {
         liveBtn.setOnClickListener {
             try {
                 if (GlobalElements.isConnectingToInternet(activity!!.applicationContext)) {
-                    getBranch()
+                    //getBranch()
+
+                    for (i in 0..5) {
+                        var da = CountryModel()
+                        da.id = "1"
+                        da.name = "https://s1.aachifoods.com/image/cache/aachi/images/g/garam_masala-600x800.jpg"
+                        data.add(da);
+                    }
+
+                    recycleView.layoutManager = GridLayoutManager(activity, 2)
+                    val adapter = ProductAdapter(data, activity!!.applicationContext)
+                    recycleView.adapter = adapter
                 } else {
                     GlobalElements.showDialog(activity!!)
                 }
@@ -72,7 +84,16 @@ class ProductFragment : Fragment() {
 
         try {
             if (GlobalElements.isConnectingToInternet(activity!!.applicationContext)) {
-                getBranch()
+                for (i in 0..5) {
+                    var da = CountryModel()
+                    da.id = "1"
+                    da.name = "https://s1.aachifoods.com/image/cache/aachi/images/g/garam_masala-600x800.jpg"
+                    data.add(da);
+                }
+
+                recycleView.layoutManager = GridLayoutManager(activity, 2)
+                val adapter = ProductAdapter(data, activity!!.applicationContext)
+                recycleView.adapter = adapter
             } else {
                 val alertDialog = AlertDialog.Builder(context).create()
                 alertDialog.setTitle("Internet Connection")
