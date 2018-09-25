@@ -177,8 +177,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val intent = Intent(this@MainActivity, SearchableSpinner::class.java)
                 startActivity(intent)
             }
-            R.id.nav_expandable ->{
+            R.id.nav_expandable -> {
                 val intent = Intent(this@MainActivity, ExpandabelListActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.nav_chat -> {
+                val intent = Intent(this@MainActivity, ChatActivity::class.java)
                 startActivity(intent)
             }
 

@@ -65,7 +65,8 @@
         <activity android:name=".OtpVerificationActivity" />
         <activity android:name=".TabActivity" />
         <activity android:name=".SearchableSpinner" />
-        <activity android:name=".ExpandabelListActivity"></activity>
+        <activity android:name=".ExpandabelListActivity" />
+        <activity android:name=".ChatActivity"></activity>
     </application>
 
 </manifest>
