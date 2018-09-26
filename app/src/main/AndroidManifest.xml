@@ -61,12 +61,17 @@
             </intent-filter>
         </service>
 
+        <receiver
+            android:name=".broadcast.AlaramReceiver"
+            android:process=":remote" />
+
         <activity android:name=".PagerActivity" />
         <activity android:name=".OtpVerificationActivity" />
         <activity android:name=".TabActivity" />
         <activity android:name=".SearchableSpinner" />
         <activity android:name=".ExpandabelListActivity" />
-        <activity android:name=".ChatActivity"></activity>
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".AlaramActivity"></activity>
     </application>
 
 </manifest>

@@ -185,7 +185,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val intent = Intent(this@MainActivity, ChatActivity::class.java)
                 startActivity(intent)
             }
-
+            R.id.nav_alaram -> {
+                val intent = Intent(this@MainActivity, AlaramActivity::class.java)
+                startActivity(intent)
+            }
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
