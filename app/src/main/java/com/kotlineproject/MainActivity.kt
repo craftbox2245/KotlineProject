@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.kotlineproject.adapter.CountryAdapter
 import com.kotlineproject.dialog.AddtocartDialog
+import com.kotlineproject.dialog.CustomProductdetailBottomSheetDialog
 import com.kotlineproject.fragment.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -188,6 +189,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_alaram -> {
                 val intent = Intent(this@MainActivity, AlaramActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.nav_bottom -> {
+                try {
+                    var bottomSheetDialog: CustomProductdetailBottomSheetDialog
+                    bottomSheetDialog = CustomProductdetailBottomSheetDialog.getInstance("", "2")
+                    bottomSheetDialog.show(supportFragmentManager, "Custom Bottom Sheet")
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
             }
         }
         drawer_layout.closeDrawer(GravityCompat.START)

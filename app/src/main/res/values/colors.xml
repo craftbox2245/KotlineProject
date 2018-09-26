@@ -7,5 +7,6 @@
 
     <color name="group_color">#323a45</color>
     <color name="child_color">#8a959e</color>
+    <color name="gray">#8a959e</color>
 
 </resources>

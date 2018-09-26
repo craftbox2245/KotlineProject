@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check delivery options"
+            android:textColor="#000"
+            android:textSize="@dimen/normal_font"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:gravity="center_vertical"
+            android:background="@drawable/linear_background"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/custom_bottom_sheet_p_d_pin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Pincode ..."
+                android:layout_weight="1"
+                android:inputType="number"
+                android:maxLength="6"
+                android:background="@null"/>
+
+            <Button
+                android:id="@+id/custom_bottom_sheet_p_d_check"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Check"
+                android:textColor="@color/white"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="@drawable/buttion_login_background"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/custom_bottom_sheet_p_d_check_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check delivery options"
+            android:textColor="#000"
+            android:textSize="@dimen/normal_font"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</LinearLayout>
