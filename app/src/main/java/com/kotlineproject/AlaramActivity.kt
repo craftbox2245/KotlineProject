@@ -52,7 +52,7 @@ class AlaramActivity : AppCompatActivity() {
                     val calNow = Calendar.getInstance()
                     calNow.set(Calendar.YEAR, Integer.parseInt("" + date[2]))
                     calNow.set(Calendar.MONTH, Integer.parseInt("" + date[1]) - 1)
-                    calNow.set(Calendar.DAY_OF_MONTH, Integer.parseInt("" + date[0]))
+                    calNow.set(Calendar.DAY_OF_MONTH, Integer.parseInt("" + date[0])-1)
                     calNow.set(Calendar.HOUR, hour)
                     calNow.set(Calendar.MINUTE, minute + 2)
                     if (current_date[2].toLowerCase() == "am") {

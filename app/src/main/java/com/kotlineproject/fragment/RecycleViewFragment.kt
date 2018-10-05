@@ -1,25 +1,23 @@
 package com.kotlineproject.fragment
 
-import android.app.AlertDialog
-import android.app.Notification
 import android.app.ProgressDialog
-import android.content.DialogInterface
-import android.database.Cursor
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.SimpleAdapter
 import android.widget.Toast
 import com.kotlineproject.GlobalElements
 
 import com.kotlineproject.R
 import com.kotlineproject.adapter.CountryAdapter
-import com.kotlineproject.custome.DividerItemDecoration
+import com.kotlineproject.custome.*
 import com.kotlineproject.model.CountryModel
 import com.kotlineproject.netUtils.DBHelper
 import com.kotlineproject.netUtils.RequestInterface
@@ -30,16 +28,18 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RecycleViewFragment : Fragment(),CountryAdapter.abc {
+class RecycleViewFragment : Fragment(), CountryAdapter.abc {
 
     override fun b(position: Int) {
-        System.out.print(""+position)
+        System.out.print("" + position)
     }
+
     lateinit var recycleView: RecyclerView
     lateinit var staticBtn: Button
     lateinit var liveBtn: Button
     lateinit var data: ArrayList<CountryModel>
     lateinit var db: DBHelper
+    lateinit var adapter: CountryAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -67,6 +67,15 @@ class RecycleViewFragment : Fragment(),CountryAdapter.abc {
                 e.printStackTrace()
             }
         }
+
+        val swipeHandler = object : SwipeToDeleteCallback(activity!!.applicationContext) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val adapter = recycleView.adapter as CountryAdapter
+                adapter.removeAt(viewHolder.adapterPosition)
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeHandler)
+        itemTouchHelper.attachToRecyclerView(recycleView)
 
         return rootView
     }
@@ -106,8 +115,7 @@ class RecycleViewFragment : Fragment(),CountryAdapter.abc {
             if (c!!.count > 0) {
                 data = ArrayList<CountryModel>()
                 data.clear()
-                while (c.moveToNext())
-                {
+                while (c.moveToNext()) {
                     val da = CountryModel()
                     da.id = c.getString(c.getColumnIndex("id"))
                     da.name = c.getString(c.getColumnIndex("name"))
@@ -118,7 +126,7 @@ class RecycleViewFragment : Fragment(),CountryAdapter.abc {
             }
 
             recycleView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
-            val adapter = CountryAdapter(data, activity!!.applicationContext,this)
+            adapter = CountryAdapter(data, activity!!.applicationContext, this)
             val itemDecoration = DividerItemDecoration(activity!!.applicationContext)
             recycleView.addItemDecoration(itemDecoration)
             recycleView.adapter = adapter
@@ -158,7 +166,7 @@ class RecycleViewFragment : Fragment(),CountryAdapter.abc {
                         }
 
                         recycleView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
-                        val adapter = CountryAdapter(data, activity!!.applicationContext,this@RecycleViewFragment)
+                        adapter = CountryAdapter(data, activity!!.applicationContext, this@RecycleViewFragment)
                         val itemDecoration = DividerItemDecoration(activity!!.applicationContext)
                         recycleView.addItemDecoration(itemDecoration)
                         recycleView.adapter = adapter

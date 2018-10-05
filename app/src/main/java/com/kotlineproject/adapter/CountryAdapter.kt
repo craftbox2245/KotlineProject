@@ -88,6 +88,11 @@ class CountryAdapter(val userList: ArrayList<CountryModel>, val context: Context
         }
     }
 
+    fun removeAt(position: Int) {
+        userList.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
     //this method is giving the size of the list
     override fun getItemCount(): Int {
         return userList.size
